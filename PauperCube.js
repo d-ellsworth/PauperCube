@@ -1,3 +1,10 @@
+// Automates Google sheets management of my Magic: the Gathering pauper cube
+// Link to my pauper cube Google Sheet: https://docs.google.com/spreadsheets/d/1n7Y204NWFy0I1_D011xKDq5J_cnxDGuPLyCVLAWOQ8A
+
+// This script will pull cards from the 'Change Log' sheet and write everything on the 'Card List' sheet based in the 'Column List' sheet columns and text
+
+// see GitHub for issues: https://github.com/d-ellsworth/PauperCube
+
 // loads menu on open
 // menu items to update/re-write the card list and sort by sort column
 function onOpen() {
@@ -55,8 +62,7 @@ function writeCardList() {
   // get cards in cube from the Change Log sheet
   var cardList = getCardList();
   // The 'Column List' sheet defines what columns there are
-  // The columns are hard coded, if the columns change need to update the sheet
-  // and the code here
+  // The columns are hard coded, if the columns change need to update the sheet and the code here
   // write column headers
   cList.getRange(1, 1, 1, colData[0].length).setValues([colData[0]]);
   // get column order from Column List
