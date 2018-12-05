@@ -5,4 +5,3 @@ https://docs.google.com/spreadsheets/d/1n7Y204NWFy0I1_D011xKDq5J_cnxDGuPLyCVLAWO
 
 This script will pull cards from the 'Change Log' sheet and write everything on the 'Card List' sheet based in the 'Column List' sheet columns and text
 
-Code was copied to/from the Google Scripts page. In the future I'd like to automate pulls from GitHub into Google Scripts
