@@ -99,7 +99,7 @@ function writeCardList() {
     rowInfo[nameCol] = cardInfo.name;
     logMe(cardInfo.name);
     // set card color properties (color, section)
-    var colorInfo = getColor(cardInfo.colors);
+    var colorInfo = getColor(cardInfo.color_identity);
     rowInfo[colorCol] = colorInfo[0];
     rowInfo[sectionCol] = colorInfo[1];
     // set card type properties (class, type, subtype, speed)
