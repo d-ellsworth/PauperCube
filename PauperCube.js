@@ -13,6 +13,7 @@ function onOpen() {
 }
 
 // function to retrive list of cards currently in the cube from the 'Change Log' sheet
+// card count values must be in col 6 (H) and names in col 3 (D)
 // returns array of unique, exact card names
 function getCardList() {
   var ss = SpreadsheetApp.getActiveSpreadsheet();
@@ -23,11 +24,11 @@ function getCardList() {
   var cardList = new Array(changeData[0][3]); 
   // loop through all cards in change log
   for (var i = 1; i < changeData.length; i++) {
-    if (changeData[i][3] == 1) {
+    if (changeData[i][6] == 1) {
       // if there is exactly 1 card in the cube add it to the list
-      cardList[j] = changeData[i][4];
+      cardList[j] = changeData[i][3];
       j++;
-    }  else if (changeData[i][3] == 0) {
+    }  else if (changeData[i][6] == 0) {
       // do nothing if the card is not in the cube
     } else {
       // if the number of cards is not 0 or 1 throw an error
