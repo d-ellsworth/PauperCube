@@ -181,6 +181,11 @@ function getCardInfo(cardName) {
   var cardJSON = UrlFetchApp.fetch(scryfallAPI.concat(cardName));
   // parse the JSON file
   var cardInfo = JSON.parse(cardJSON);
+  // support for dual face cards
+  // if dual face mush all the oracle text together
+  if (cardInfo.card_faces) {
+    cardInfo.oracle_text = cardInfo.card_faces[0].oracle_text.concat('\n',cardInfo.card_faces[1].oracle_text);
+  }
   return cardInfo;
 }
 
