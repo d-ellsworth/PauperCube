@@ -89,7 +89,7 @@ function writeCardList() {
   // sort criteria by Section, Color, Type, CMC
   var sectionSort = ['White','Blue','Black','Red','Green','Multi','Colorless','Land'];
   var colorSort = ['WU','WB','WR','WG','UB','UR','UG','BR','BG','RG'];
-  var typeSort = ['Creature','Artifact Creature','Enchantment','Instant','Sorcery','Artifact','Land'];
+  var typeSort = ['Creature','Enchantment','Instant','Sorcery','Artifact','Land'];
   // write the cards to the Card List sheet row by row
   for (var i = 0; i < cardList.length; i++) {
     // get the card info JSON from ScryFall
@@ -163,7 +163,9 @@ function writeCardList() {
     var sortNum = 0;
     sortNum += 10000 * ( sectionSort.indexOf(rowInfo[sectionCol]) + 1);
     sortNum += 100   * ( colorSort.indexOf(rowInfo[colorCol]) + 1);
-    sortNum += 10    * ( typeSort.indexOf(rowInfo[typeCol]) + 1);
+    // .split.pop turns the type line into an array and takes the last element
+    // This makes 'Artifact Creature' return 'Creature'
+    sortNum += 10    * ( typeSort.indexOf(rowInfo[typeCol].split(' ').pop()) + 1);
     sortNum += rowInfo[manaCostCol];
     rowInfo[sortCol] = sortNum;
     // write the row
